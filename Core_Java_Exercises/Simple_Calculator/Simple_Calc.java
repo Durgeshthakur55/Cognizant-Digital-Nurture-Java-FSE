@@ -1,3 +1,4 @@
+package Core_Java_Exercises.Simple_Calculator;
 
 import java.util.Scanner;
 
