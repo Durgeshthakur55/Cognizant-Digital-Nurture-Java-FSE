@@ -15,5 +15,6 @@
             "database": "sys",
             "password": "12345"
         }
-    ]
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
