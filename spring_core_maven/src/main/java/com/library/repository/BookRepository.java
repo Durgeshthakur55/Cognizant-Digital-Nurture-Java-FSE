@@ -1,7 +1,7 @@
 package com.library.repository;
 
-public class BookRepository {
-    public void fetchBooks() {
-        System.out.println("[BookRepository] Fetching books from database via Spring IoC Container...");
-    }
+import com.library.entity.Book;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface BookRepository extends JpaRepository<Book, Long> {
 }
