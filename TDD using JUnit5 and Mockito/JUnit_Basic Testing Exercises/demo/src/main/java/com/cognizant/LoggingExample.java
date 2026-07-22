@@ -11,3 +11,4 @@ public class LoggingExample {
         logger.warn("This is a warning message");
     }
 }
+//logging error mssge and warning levels
