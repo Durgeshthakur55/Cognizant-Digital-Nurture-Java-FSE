@@ -22,13 +22,57 @@ public class OrmLearnApplication {
         LOGGER.info("Inside main");
 
         countryService = context.getBean(CountryService.class);
+
         testGetAllCountries();
+        testFindCountryByCode();
+        testAddCountry();
+        testUpdateCountry();
+        testDeleteCountry();
+        testSearchCountries();
     }
 
     private static void testGetAllCountries() {
         LOGGER.info("Start");
         List<Country> countries = countryService.getAllCountries();
         LOGGER.debug("countries={}", countries);
+        LOGGER.info("End");
+    }
+
+    private static void testFindCountryByCode() {
+        LOGGER.info("Start");
+        Country country = countryService.findCountryByCode("IN");
+        LOGGER.debug("Country={}", country);
+        LOGGER.info("End");
+    }
+
+    private static void testAddCountry() {
+        LOGGER.info("Start");
+        Country newCountry = new Country("ZZ", "Test Country");
+        countryService.addCountry(newCountry);
+        Country country = countryService.findCountryByCode("ZZ");
+        LOGGER.debug("Added Country={}", country);
+        LOGGER.info("End");
+    }
+
+    private static void testUpdateCountry() {
+        LOGGER.info("Start");
+        countryService.updateCountry("ZZ", "Updated Test Country");
+        Country country = countryService.findCountryByCode("ZZ");
+        LOGGER.debug("Updated Country={}", country);
+        LOGGER.info("End");
+    }
+
+    private static void testDeleteCountry() {
+        LOGGER.info("Start");
+        countryService.deleteCountry("ZZ");
+        LOGGER.info("Deleted Country ZZ successfully");
+        LOGGER.info("End");
+    }
+
+    private static void testSearchCountries() {
+        LOGGER.info("Start");
+        List<Country> countries = countryService.getCountriesByPartialName("OU");
+        LOGGER.debug("Matching Countries={}", countries);
         LOGGER.info("End");
     }
 }
